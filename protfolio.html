@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noor Ul Eman — Content Creator Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #1D9E75;
+    --teal-light: #E1F5EE;
+    --teal-dark: #085041;
+    --teal-mid: #0F6E56;
+    --amber: #EF9F27;
+    --amber-light: #FAEEDA;
+    --text: #2C2C2A;
+    --text-muted: #5F5E5A;
+    --text-soft: #888780;
+    --bg: #FAFAF8;
+    --white: #ffffff;
+    --border: rgba(0,0,0,0.08);
+    --section-gap: 5rem;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--teal-dark);
+    color: white;
+    padding: 5rem 2rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: -80px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; right: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.85);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+  }
+  .hero p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.7);
+    max-width: 560px;
+    margin: 0 auto 2.5rem;
+  }
+  .hero-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .hero-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+  .hero-links a:hover {
+    background: rgba(255,255,255,0.2);
+  }
+  .hero-links a.primary {
+    background: var(--amber);
+    border-color: var(--amber);
+    color: #2C1A00;
+  }
+  .hero-links a.primary:hover {
+    background: #f7b040;
+  }
+
+  /* SECTION */
+  .section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--section-gap) 2rem;
+  }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 3rem;
+    line-height: 1.2;
+  }
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  @media (max-width: 700px) { .about-grid { grid-template-columns: 1fr; gap: 2rem; } }
+  .about-text p {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    font-size: 15px;
+  }
+  .about-text p strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .skill-tag {
+    background: var(--teal-light);
+    color: var(--teal-dark);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 100px;
+    border: 1px solid rgba(15,110,86,0.15);
+  }
+
+  /* STATS */
+  .stats-bar {
+    background: var(--teal-dark);
+    color: white;
+    padding: 3rem 2rem;
+  }
+  .stats-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--amber);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .stat-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.5px;
+  }
+
+  /* EXPERIENCE */
+  .exp-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .exp-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: var(--teal);
+    border-radius: 4px 0 0 4px;
+  }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .exp-role {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .exp-company {
+    font-size: 14px;
+    color: var(--teal);
+    font-weight: 500;
+  }
+  .exp-date {
+    font-size: 12px;
+    color: var(--text-soft);
+    background: var(--teal-light);
+    padding: 4px 12px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+  .exp-bullets {
+    list-style: none;
+    padding: 0;
+  }
+  .exp-bullets li {
+    font-size: 14px;
+    color: var(--text-muted);
+    padding: 4px 0 4px 20px;
+    position: relative;
+  }
+  .exp-bullets li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-size: 12px;
+    top: 5px;
+  }
+
+  /* PORTFOLIO POSTS */
+  .posts-intro {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+  }
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .post-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .post-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  }
+  .post-thumb {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .post-thumb.t1 { background: linear-gradient(135deg, #085041, #1D9E75); }
+  .post-thumb.t2 { background: linear-gradient(135deg, #3C3489, #7F77DD); }
+  .post-thumb.t3 { background: linear-gradient(135deg, #993C1D, #D85A30); }
+  .post-thumb.t4 { background: linear-gradient(135deg, #0C447C, #378ADD); }
+  .post-thumb.t5 { background: linear-gradient(135deg, #3B6D11, #639922); }
+  .post-thumb.t6 { background: linear-gradient(135deg, #633806, #EF9F27); }
+  .post-platform {
+    position: absolute;
+    top: 12px; left: 12px;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-style: normal;
+    font-weight: 500;
+  }
+  .post-type {
+    position: absolute;
+    bottom: 12px; right: 12px;
+    background: rgba(0,0,0,0.25);
+    color: rgba(255,255,255,0.9);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .post-body {
+    padding: 1.25rem;
+  }
+  .post-title {
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .post-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+  .post-meta {
+    display: flex;
+    gap: 12px;
+    font-size: 12px;
+    color: var(--text-soft);
+  }
+  .post-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* SAMPLE CONTENT */
+  .sample-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .sample-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+  }
+  .sample-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .platform-dot {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .platform-dot.ig { background: linear-gradient(135deg, #f09433,#e6683c,#dc2743,#cc2366,#bc1888); color: white; }
+  .platform-dot.fb { background: #1877f2; color: white; }
+  .platform-dot.li { background: #0a66c2; color: white; }
+  .sample-platform-name {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--text);
+  }
+  .sample-type-badge {
+    margin-left: auto;
+    font-size: 11px;
+    color: var(--teal-mid);
+    background: var(--teal-light);
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-weight: 500;
+  }
+  .sample-caption {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  .sample-caption .highlight {
+    color: var(--teal);
+    font-weight: 500;
+  }
+  .sample-hashtags {
+    font-size: 12px;
+    color: #378ADD;
+    line-height: 1.8;
+  }
+  .caption-ur {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    direction: rtl;
+    text-align: right;
+    font-style: italic;
+    margin-bottom: 1rem;
+    padding: 12px;
+    background: var(--teal-light);
+    border-radius: 8px;
+    border-left: 3px solid var(--teal);
+  }
+
+  /* APPROACH */
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  .approach-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+  }
+  .approach-icon {
+    width: 44px; height: 44px;
+    background: var(--teal-light);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    margin-bottom: 1rem;
+  }
+  .approach-title {
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .approach-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--text);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+  .footer a {
+    color: var(--amber);
+    text-decoration: none;
+  }
+  .footer-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+  .footer p { font-size: 14px; margin-bottom: 0.5rem; }
+
+  @media (max-width: 600px) {
+    .hero { padding: 3rem 1.5rem 3rem; }
+    .section { padding: 3rem 1.5rem; }
+    .exp-header { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-tag">Content Creator & Social Media Manager</div>
+  <h1>Noor Ul Eman</h1>
+  <p>Bilingual content creator with real-world social media management experience — crafting posts, reels, and stories that connect with Pakistani audiences.</p>
+  <div class="hero-links">
+    <a href="https://instagram.com/artaholicmess" target="_blank">📷 @artaholicmess</a>
+    <a href="mailto:nooruleman2005@gmail.com" class="primary">✉ Get in Touch</a>
+  </div>
+</header>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div>
+      <span class="stat-num">2+</span>
+      <span class="stat-label">Years of experience</span>
+    </div>
+    <div>
+      <span class="stat-num">3</span>
+      <span class="stat-label">Platforms managed</span>
+    </div>
+    <div>
+      <span class="stat-num">2</span>
+      <span class="stat-label">Languages (EN & UR)</span>
+    </div>
+    <div>
+      <span class="stat-num">∞</span>
+      <span class="stat-label">Creative ideas</span>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="section">
+  <div class="section-label">About Me</div>
+  <h2 class="section-title">Creative. Bilingual. Results-driven.</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a <strong>Pharm-D student</strong> at CUST University, Islamabad, with a deep passion for visual storytelling and digital content. I have been creating content for brands and personal projects since 2022.</p>
+      <p>At <strong>Massive Dynamics</strong>, I managed their complete Instagram presence — from strategy and design to scheduling, hashtag research, and analytics. The result: consistent growth in reach and engagement.</p>
+      <p>My personal Instagram art page <strong>@artaholicmess</strong> is my creative playground — where I build a brand, grow an audience, and experiment with content every day.</p>
+      <p>I understand <strong>Pakistani audiences</strong> deeply — their language, trends, and what makes them stop scrolling.</p>
+    </div>
+    <div>
+      <p style="font-size:13px; color:var(--text-soft); margin-bottom:1rem; letter-spacing:1px; text-transform:uppercase; font-weight:500;">My Toolbox</p>
+      <div class="skills-grid">
+        <span class="skill-tag">Canva Design</span>
+        <span class="skill-tag">Instagram</span>
+        <span class="skill-tag">Facebook</span>
+        <span class="skill-tag">LinkedIn</span>
+        <span class="skill-tag">Reels & Stories</span>
+        <span class="skill-tag">Caption Writing</span>
+        <span class="skill-tag">Urdu Copywriting</span>
+        <span class="skill-tag">Hashtag Research</span>
+        <span class="skill-tag">Content Scheduling</span>
+        <span class="skill-tag">Trend Research</span>
+        <span class="skill-tag">Basic Video Editing</span>
+        <span class="skill-tag">Analytics & Insights</span>
+        <span class="skill-tag">Brand Identity</span>
+        <span class="skill-tag">Digital Art</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- EXPERIENCE -->
+<div class="section">
+  <div class="section-label">Work Experience</div>
+  <h2 class="section-title">Where I've made an impact</h2>
+
+  <div class="exp-card">
+    <div class="exp-header">
+      <div>
+        <div class="exp-role">Social Media Manager</div>
+        <div class="exp-company">Massive Dynamics · Islamabad</div>
+      </div>
+      <div class="exp-date">Part-Time · 2023 – 2024</div>
+    </div>
+    <ul class="exp-bullets">
+      <li>Managed the company's official Instagram page end-to-end, driving consistent engagement growth through strategic posting.</li>
+      <li>Designed branded graphics and promotional materials using Canva.</li>
+      <li>Created and scheduled daily posts, stories and reels tailored to the target audience.</li>
+      <li>Researched trending hashtags and topics relevant to the Pakistani digital market.</li>
+      <li>Monitored analytics and adapted content strategy based on performance data.</li>
+    </ul>
+  </div>
+
+  <div class="exp-card">
+    <div class="exp-header">
+      <div>
+        <div class="exp-role">Content Creator & Art Page Manager</div>
+        <div class="exp-company">@artaholicmess · Instagram · Personal Brand</div>
+      </div>
+      <div class="exp-date">Self-run · 2022 – Present</div>
+    </div>
+    <ul class="exp-bullets">
+      <li>Run a creative art Instagram page showcasing original digital and traditional artwork.</li>
+      <li>Design all visual content and write bilingual captions in both English and Urdu.</li>
+      <li>Maintained consistent brand identity, aesthetic, and posting schedule.</li>
+      <li>Grew a dedicated following through audience engagement and content planning.</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- PORTFOLIO POSTS -->
+<div class="section">
+  <div class="section-label">Selected Work</div>
+  <h2 class="section-title">Content I've created</h2>
+  <p class="posts-intro">A selection of the types of content I create — graphics, reels, captions, and more. You can see my personal brand work live at <a href="https://instagram.com/artaholicmess" target="_blank" style="color:var(--teal); text-decoration:none; font-weight:500;">@artaholicmess</a>.</p>
+
+  <div class="posts-grid">
+    <a href="https://instagram.com/artaholicmess" target="_blank" class="post-card">
+      <div class="post-thumb t1">
+        <span class="post-platform">Instagram</span>
+        <em>Art Reel</em>
+        <span class="post-type">Video · Reel</span>
+      </div>
+      <div class="post-body">
+        <div class="post-title">Speed art reel — digital illustration process</div>
+        <div class="post-desc">Behind-the-scenes time-lapse of creating a digital artwork. High engagement format that showcases skill and process.</div>
+        <div class="post-meta">
+          <span>✦ Original content</span>
+          <span>✦ @artaholicmess</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://instagram.com/artaholicmess" target="_blank" class="post-card">
+      <div class="post-thumb t2">
+        <span class="post-platform">Instagram</span>
+        <em>Graphic Post</em>
+        <span class="post-type">Static · Feed</span>
+      </div>
+      <div class="post-body">
+        <div class="post-title">Branded Canva graphic — promotional post</div>
+        <div class="post-desc">Professional graphic designed using Canva with consistent brand colors, typography, and visual hierarchy.</div>
+        <div class="post-meta">
+          <span>✦ Canva design</span>
+          <span>✦ Brand content</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://instagram.com/massivedynamicpk" target="_blank" class="post-card">
+      <div class="post-thumb t4">
+        <span class="post-platform">Instagram</span>
+        <em>Client Work</em>
+        <span class="post-type">Story + Reel</span>
+      </div>
+      <div class="post-body">
+        <div class="post-title">Massive Dynamics — social media management</div>
+        <div class="post-desc">End-to-end page management for a professional services firm: graphics, captions, stories, and analytics.</div>
+        <div class="post-meta">
+          <span>✦ Client work</span>
+          <span>✦ @massivedynamicpk</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://instagram.com/artaholicmess" target="_blank" class="post-card">
+      <div class="post-thumb t3">
+        <span class="post-platform">Instagram</span>
+        <em>Caption Copy</em>
+        <span class="post-type">Bilingual</span>
+      </div>
+      <div class="post-body">
+        <div class="post-title">Bilingual caption writing — English & Urdu</div>
+        <div class="post-desc">Crafting captions that speak to Pakistani audiences in both languages, with the right tone, hashtags, and call-to-action.</div>
+        <div class="post-meta">
+          <span>✦ EN + UR</span>
+          <span>✦ Copywriting</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://instagram.com/artaholicmess" target="_blank" class="post-card">
+      <div class="post-thumb t5">
+        <span class="post-platform">Instagram</span>
+        <em>Story Series</em>
+        <span class="post-type">Stories</span>
+      </div>
+      <div class="post-body">
+        <div class="post-title">Story series — polls, Q&As, and engagement</div>
+        <div class="post-desc">Interactive story formats that boost engagement, build community, and increase reach through native Instagram features.</div>
+        <div class="post-meta">
+          <span>✦ Engagement strategy</span>
+          <span>✦ Audience building</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://instagram.com/artaholicmess" target="_blank" class="post-card">
+      <div class="post-thumb t6">
+        <span class="post-platform">Multi-platform</span>
+        <em>Content Plan</em>
+        <span class="post-type">Strategy</span>
+      </div>
+      <div class="post-body">
+        <div class="post-title">Content calendar — weekly scheduling & planning</div>
+        <div class="post-desc">Planning and scheduling a week's worth of content across platforms, balancing promotional, educational, and creative posts.</div>
+        <div class="post-meta">
+          <span>✦ Strategy</span>
+          <span>✦ Scheduling</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- SAMPLE CAPTIONS -->
+<div class="section">
+  <div class="section-label">Sample Work</div>
+  <h2 class="section-title">Caption & content samples</h2>
+  <p class="posts-intro" style="margin-bottom:2rem;">Here are sample captions I'd write for a consultancy firm — demonstrating my bilingual writing style and platform-specific tone.</p>
+
+  <div class="sample-grid">
+    <div class="sample-card">
+      <div class="sample-card-header">
+        <div class="platform-dot ig">📷</div>
+        <div>
+          <div class="sample-platform-name">Instagram</div>
+          <div style="font-size:12px;color:var(--text-soft)">Feed Post</div>
+        </div>
+        <span class="sample-type-badge">EN Caption</span>
+      </div>
+      <p class="sample-caption">
+        Your future is one consultation away. ✨<br><br>
+        At <span class="highlight">Z&M Consultancy</span>, we don't just process paperwork — we open doors. Whether it's education abroad, immigration guidance, or visa assistance, our team is here to make your journey smooth.<br><br>
+        DM us today or visit us at DHA Phase 2, Islamabad. 📍
+      </p>
+      <div class="sample-hashtags">#ZMConsultancy #Islamabad #StudyAbroad #VisaConsultant #PakistanConsultancy #DHA2 #FutureGoals #ImmigrationPakistan</div>
+    </div>
+
+    <div class="sample-card">
+      <div class="sample-card-header">
+        <div class="platform-dot ig">📷</div>
+        <div>
+          <div class="sample-platform-name">Instagram</div>
+          <div style="font-size:12px;color:var(--text-soft)">Feed Post</div>
+        </div>
+        <span class="sample-type-badge">UR Caption</span>
+      </div>
+      <div class="caption-ur">
+        بیرون ملک جانے کا خواب؟ ہم اسے حقیقت بناتے ہیں۔ 🌍<br><br>
+        Z&M Consultancy میں ہم آپ کو visa، admission اور immigration کے ہر قدم پر گائیڈ کرتے ہیں۔<br><br>
+        آج ہی DM کریں!
+      </div>
+      <div class="sample-hashtags">#ZMConsultancy #اسلام_آباد #بیرون_ملک_تعلیم #ویزا_کنسلٹنٹ</div>
+    </div>
+
+    <div class="sample-card">
+      <div class="sample-card-header">
+        <div class="platform-dot li">in</div>
+        <div>
+          <div class="sample-platform-name">LinkedIn</div>
+          <div style="font-size:12px;color:var(--text-soft)">Professional Post</div>
+        </div>
+        <span class="sample-type-badge">EN Professional</span>
+      </div>
+      <p class="sample-caption">
+        Navigating the path to studying or working abroad has never been more complex — and that's exactly why professional guidance matters.<br><br>
+        At <span class="highlight">Z&M Consultancy</span>, we bring clarity to the process. From documentation to final approvals, our experienced consultants are with you every step of the way.<br><br>
+        Reach out today to schedule your consultation. 📩
+      </p>
+      <div class="sample-hashtags">#ConsultancyServices #StudyAbroad #ImmigrationConsultant #IslamabadBusiness #ProfessionalServices</div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- WHY ME -->
+<div class="section">
+  <div class="section-label">Why Choose Me</div>
+  <h2 class="section-title">What I bring to Z&M Consultancy</h2>
+  <div class="approach-grid">
+    <div class="approach-card">
+      <div class="approach-icon">🇵🇰</div>
+      <div class="approach-title">Local Audience Insight</div>
+      <div class="approach-desc">I understand what Pakistani digital audiences respond to — the language, humor, trends, and cultural nuances that make content feel real.</div>
+    </div>
+    <div class="approach-card">
+      <div class="approach-icon">🌐</div>
+      <div class="approach-title">Bilingual Fluency</div>
+      <div class="approach-desc">I write captions and scripts fluently in both English and Urdu, allowing your brand to reach a wider, more diverse audience.</div>
+    </div>
+    <div class="approach-card">
+      <div class="approach-icon">🎨</div>
+      <div class="approach-title">Design Eye</div>
+      <div class="approach-desc">From Canva graphics to reels, I create visual content that looks professional, on-brand, and scroll-stopping.</div>
+    </div>
+    <div class="approach-card">
+      <div class="approach-icon">📊</div>
+      <div class="approach-title">Data-Informed</div>
+      <div class="approach-desc">I don't just post and hope. I track analytics, research trends, and adjust strategy to keep your content growing.</div>
+    </div>
+    <div class="approach-card">
+      <div class="approach-icon">🗓</div>
+      <div class="approach-title">Deadline-Driven</div>
+      <div class="approach-desc">As a Pharm-D student, I've learned to manage time, meet deadlines, and deliver — even under pressure.</div>
+    </div>
+    <div class="approach-card">
+      <div class="approach-icon">💡</div>
+      <div class="approach-title">Self-Starter</div>
+      <div class="approach-desc">My personal brand was built from scratch with no team. I take initiative, think creatively, and work independently with confidence.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-name">Noor Ul Eman</div>
+  <p>Content Creator · Social Media Manager · Islamabad</p>
+  <p>
+    <a href="mailto:nooruleman2005@gmail.com">nooruleman2005@gmail.com</a> &nbsp;·&nbsp;
+    <a href="https://instagram.com/artaholicmess" target="_blank">@artaholicmess</a> &nbsp;·&nbsp;
+    +92 333 986 9380
+  </p>
+  <p style="margin-top:1.5rem; font-size:12px; opacity:0.4;">Portfolio created for Z&M Consultancy application · 2025</p>
+</footer>
+
+</body>
+</html>
